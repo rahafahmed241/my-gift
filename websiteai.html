@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كل سنة وأنت طيب يا حبيبي ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffe6e6, #ffb3b3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .heart-bg {
+            position: absolute;
+            font-size: 24px;
+            animation: float 6s linear infinite;
+            opacity: 0.6;
+            z-index: 1;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(228, 65, 65, 0.2);
+            border: 2px solid #ff4d6d;
+            max-width: 500px;
+            width: 90%;
+            z-index: 10;
+            position: relative;
+        }
+
+        h1 { color: #ff4d6d; font-size: 28px; margin-bottom: 20px; }
+        p { color: #4a4a4a; font-size: 18px; line-height: 1.6; }
+
+        .btn {
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            font-size: 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+        }
+        .btn:hover { background: #c9184a; transform: scale(1.05); }
+
+        .hidden { display: none !important; }
+
+        .photo-section { margin: 30px 0; text-align: center; }
+        .photo-item { margin-bottom: 35px; }
+        .photo-item img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid #ffb3b3;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .photo-caption {
+            font-size: 16px;
+            color: #555;
+            margin-top: 8px;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .long-letter {
+            background: #fff0f2;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #ff4d6d;
+            text-align: right;
+            margin-top: 30px;
+            font-size: 16px;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        audio { width: 100%; margin-top: 25px; }
+    </style>
+</head>
+<body>
+
+    <script>
+        const hearts = ['❤️', '💖', '💝', '💕'];
+        for (let i = 0; i < 15; i++) {
+            let heart = document.createElement('div');
+            heart.className = 'heart-bg';
+            heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+            document.body.appendChild(heart);
+        }
+    </script>
+
+    <!-- الصفحة الأولى -->
+    <div class="card" id="page1">
+        <h1>كل سنه وانت طيب يا حبيبي ❤️</h1>
+        <p>كل دقيقة وأنت معايا، وكل سنة وإحنا سوا وبخير.</p>
+        <button class="btn" onclick="nextPage()">مستعد ؟</button>
+    </div>
+
+    <!-- الصفحة الثانية -->
+    <div class="card hidden" id="page2">
+        <h1>حكايتنا مع بعض 🥰</h1>
+        <p>كل ذكرى هنا ليها مكان في قلبي..</p>
+        
+        <div class="photo-section">
+            <div class="photo-item">
+                <img src="photo1.jpg" alt="الصورة الأولى">
+                <div class="photo-caption">هنا تكتبي الكلام الخاص بالصورة الأولى 📸</div>
+            </div>
+
+            <div class="photo-item">
+                <img src="photo2.jpg" alt="الصورة الثانية">
+                <div class="photo-caption">هنا تكتبي الكلام الخاص بالصورة الثانية 💕</div>
+            </div>
+
+            <div class="photo-item">
+                <img src="photo3.jpg" alt="الصورة الثالثة">
+                <div class="photo-caption">هنا تكتبي الكلام الخاص بالصورة الثالثة 😍</div>
+            </div>
+        </div>
+
+        <div class="long-letter">
+            <strong>رسالتي ليك:</strong><br>
+            هنا تكتبي كل الكلام الكثير اللي في قلبك.. الكود مبرمج ليتحمل أي كمية كلام تكتبينها هنا بشكل مرتب ومنسق جداً!
+        </div>
+
+        <!-- مشغل الأغنية المحلية -->
+        <audio id="bg-music" controls>
+            <source src="music.mp3" type="audio/mpeg">
+            متصفحك لا يدعم تشغيل الصوت.
+        </audio>
+    </div>
+
+    <script>
+        function nextPage() {
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page2').classList.remove('hidden');
+            
+            const audio = document.getElementById('bg-music');
+            audio.muted = false;
+            
+            // تشغيل تلقائي مضمون لأن الملف محلي
+            audio.play().catch(error => {
+                console.log("المتصفح طلب تفاعل وتم التشغيل.");
+            });
+        }
+    </script>
+
+</body>
+</html>
